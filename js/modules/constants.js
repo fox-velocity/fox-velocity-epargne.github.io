@@ -1,4 +1,4 @@
-// constants.js
+// constants.js 2
 
 // Définition des symboles de devises
 export const currencySymbols = {
