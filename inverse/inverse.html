@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulateur Épargne - Capital Initial</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Bibliothéque PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+    <script src="js/script.js" type="module"></script>
+
+</head>
+
+<body class="light-theme">
+    <div class="banner">
+        <div class="banner-container">
+            <a href="../index.html">
+                <img src="../images/logoRenardavecblanc.png" alt="Logo Renard" class="banner-logo">
+            </a>
+            <div class="banner-text">Fox Velocity Création</div>
+        </div>
+        <button class="theme-switch" id="themeToggle">
+            <svg class="theme-icon sun-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="5" fill="currentColor" />
+                <line x1="12" y1="2" x2="12" y2="5" stroke="currentColor" stroke-width="2" />
+                <line x1="12" y1="19" x2="12" y2="22" stroke="currentColor" stroke-width="2" />
+                <line x1="2" y1="12" x2="5" y2="12" stroke="currentColor" stroke-width="2" />
+                <line x1="19" y1="12" x2="22" y2="12" stroke="currentColor" stroke-width="2" />
+                <line x1="4.22" y1="4.22" x2="6.34" y2="6.34" stroke="currentColor" stroke-width="2" />
+                <line x1="17.66" y1="17.66" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" />
+                <line x1="4.22" y1="19.78" x2="6.34" y2="17.66" stroke="currentColor" stroke-width="2" />
+                <line x1="17.66" y1="6.34" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" />
+            </svg>
+            <svg class="theme-icon moon-icon" viewBox="0 0 24 24">
+                <path fill="currentColor"
+                    d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-3.03 0-5.5-2.47-5.5-5.5 0-1.82.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z">
+                </path>
+            </svg>
+        </button>
+    </div>
+
+    <div class="container">
+        <h1>Simulateur Épargne - Capital Initial</h1>
+
+        <div class="input-group">
+            <label for="targetAmount">Capital final visé €</label>
+            <input type="range" id="targetAmount" min="10000" max="1000000" step="1000" value="100000">
+            <div class="range-value" id="targetAmountValue">100 000 €</div>
+        </div>
+
+        <div class="input-group">
+            <label for="monthlyContribution">Épargne mensuelle €</label>
+            <input type="range" id="monthlyContribution" min="0" max="2000" step="50" value="500">
+            <div class="range-value" id="monthlyContributionValue">500 €</div>
+        </div>
+
+      
+
+        <div class="input-group">
+            <label for="annualInterestRate">Taux d'intérêt annuel %</label>
+            <input type="range" id="annualInterestRate" min="0" max="10" step="0.1" value="3">
+            <div class="range-value" id="annualInterestRateValue">5.00 %</div>
+        </div>
+
+        <div class="input-group">
+            <label for="years">Durée (années)</label>
+            <input type="range" id="years" min="1" max="40" step="1" value="8">
+            <div class="range-value" id="yearsValue">8 ans</div>
+        </div>
+
+        <div class="fees-group">
+            <div class="fees-input">
+                <label for="initialEntryFees">Frais d'entrée initial %</label>
+                <input type="range" id="initialEntryFees" min="0" max="5" step="0.1" value="1">
+                <div class="range-value" id="initialEntryFeesValue">1.00 %</div>
+            </div>
+            <div class="fees-input">
+                <label for="monthlyEntryFees">Frais d'entrée mensuel %</label>
+                <input type="range" id="monthlyEntryFees" min="0" max="5" step="0.1" value="0.5">
+                <div class="range-value" id="monthlyEntryFeesValue">1 %</div>
+            </div>
+        </div>
+
+        <div class="fees-group">
+            <div class="fees-input">
+                <label for="managementFees">Frais de gestion annuels %</label>
+                <input type="range" id="managementFees" min="0" max="2" step="0.05" value="0.50">
+                <div class="range-value" id="managementFeesValue">0.50 %</div>
+            </div>
+            <div class="fees-input">
+                    <label for="indexationRate">Indexation annuel des versements %</label>
+                    <input type="range" id="indexationRate" min="0" max="5" step="0.1" value="0.8">
+                    <div class="range-value" id="indexationRateValue">0.80 %</div>
+            </div>  
+        </div>
+
+        <div id="result">
+            <h2>Résultats de la projection</h2>
+            <div class="result-item">
+                <span>Capital initial nécessaire :</span>
+                <span id="initialCapital"></span>
+            </div>
+            <div class="result-item">
+                <span>Montant final :</span>
+                <span id="finalAmount"></span>
+            </div>
+            <div class="result-item">
+                <span>Total des versements :</span>
+                <span id="totalContributions"></span>
+            </div>
+            <div class="result-item">
+                <span>Intérêts gagnés sur versements net :</span>
+                <span id="interestEarned"></span>
+            </div>
+
+            
+            <div class="result-item">
+                <span>Total des frais d'entrée initial :</span>
+                <span id="totalInitialEntryFees"></span>
+            </div>
+            <div class="result-item">
+                <span>Total des frais d'entrée mensuels :</span>
+                <span id="totalMonthlyEntryFees"></span>
+            </div>
+            <div class="result-item">
+                <span>Total des frais de gestion :</span>
+                <span id="totalManagementFees"></span>
+            </div>
+            <div class="result-item">
+                <span>Total des frais :</span>
+                <span id="totalFeesValue"></span>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <canvas id="savingsChart"></canvas>
+        </div>
+
+    </div>
+
+    <div class="BasDePage">
+        <button class="download-button" id="download-pdf">
+            <svg width="75" height="75" viewBox="0 0 100 100" fill="#4caf50" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M76.4706 10.5882H23.5294C17.6471 10.5882 13 15.2353 13 21.1765V78.8235C13 84.7647 17.6471 89.4118 23.5294 89.4118H76.4706C82.3529 89.4118 87 84.7647 87 78.8235V21.1765C87 15.2353 82.3529 10.5882 76.4706 10.5882Z"
+                    stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M76.4706 10.5882L76.4706 26.4706L87 26.4706" stroke="black" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M16 35.2941H38.8235" stroke="black" stroke-width="5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                <path d="M16 47.0588H32.9412" stroke="black" stroke-width="5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                <path d="M16 58.8235H27.0588" stroke="black" stroke-width="5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+
+                <rect x="30" y="31" width="40" height="20" fill="orange" stroke="black" stroke-width="2" />
+                <text x="35" y="47" font-family="Arial" font-weight="bold" font-size="16" fill="black">PDF</text>
+            </svg>
+        </button>
+    </div>
+</body>
+
+</html>
