@@ -9,9 +9,7 @@
             padding: 10px;
             display: flex;
             align-items: center;
-            /* Center vertically */
             justify-content: space-between;
-            /* Distribute space between elements */
         }
 
         .logo {
@@ -21,15 +19,10 @@
 
         h1 {
             margin: 0;
-            /* Remove default margin */
             flex-grow: 1;
-            /* Allow the title to expand and push items to the right */
             text-align: left;
-            /* Align the title to the left */
             display: flex;
-            /* Use flexbox for the title container */
             align-items: center;
-            /* Vertically align the logo and title */
             font-size: 1.3em;
         }
 
@@ -39,12 +32,10 @@
             padding: 0;
             margin: 0;
             justify-content: center;
-            /* Center the nav links */
         }
 
         .nav-list.active {
             display: block;
-            /* Use block for vertical display on small screens */
         }
 
         .nav-list li {
@@ -53,9 +44,7 @@
 
         .nav-list li a {
             color: white;
-            /* Ensure link text is visible */
             text-decoration: none;
-            /* Remove underline */
         }
 
         .hamburger {
@@ -118,7 +107,6 @@
             border-radius: 10px;
         }
 
-        /* Center nav items when hamburger menu is active */
         .nav-list.active {
             text-align: center;
         }
@@ -147,12 +135,10 @@
 
         .hero-content h1 {
             font-size: 2rem;
-
         }
 
         .hero-content p {
             font-size: 1rem;
-
         }
 
         #simulateurs {
@@ -181,9 +167,9 @@
             border-radius: 0rem 1rem 1rem 1rem;
             border: 3px solid rgba(33, 33, 33, 1);
             text-align: center;
-            display: flex; /* Added to use flexbox */
-            flex-direction: column; /* Stack items vertically */
-            justify-content: space-between; /* Distribute space evenly */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .simulateur-card p {
@@ -203,7 +189,7 @@
             text-decoration: none;
             border-radius: 0rem 0.5rem 0.5rem 0.5rem;
             margin-top: 1rem;
-            margin-bottom: 1rem; /*Added margin on bottom */
+            margin-bottom: 1rem;
         }
 
         .simulateur-button:hover {
@@ -236,7 +222,6 @@
             text-align: center;
             padding: 1rem 0;
         }
-
 
         @keyframes wiggle {
             0% {

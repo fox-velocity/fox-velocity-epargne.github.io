@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calcul Versement Mensuel</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/styles.css" type="text/css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
@@ -84,12 +84,12 @@
                 <label for="managementFees">Frais de gestion annuels %</label>
                 <input type="range" id="managementFees" min="0" max="2" step="0.1" value="0.8">
                 <div class="range-value" id="managementFeesValue">0.80 %</div>
-        </div>
-         <div class="fees-input">
+            </div>
+            <div class="fees-input">
                 <label for="indexationRate">Indexation annuel des versements %</label>
                 <input type="range" id="indexationRate" min="0" max="5" step="0.1" value="0.8">
                 <div class="range-value" id="indexationRateValue">0.80 %</div>
-        </div>
+            </div>
         </div>
 
         <div id="result">
@@ -102,7 +102,7 @@
                 <span>Montant dernier versement mensuel :</span>
                 <span id="lastMonthlyContribution"></span>
             </div>
-             <div class="result-item">
+            <div class="result-item">
                 <span>Montant final :</span>
                 <span id="finalAmount"></span>
             </div>
@@ -110,7 +110,7 @@
                 <span>Total des versements :</span>
                 <span id="totalContributions"></span>
             </div>
-           
+
             <div class="result-item">
                 <span>Intérêts gagnés net de frais d'entrée :</span>
                 <span id="interestEarnedNet"></span>
@@ -133,8 +133,8 @@
             </div>
         </div>
 
-         <!-- Graphique -->
-         <div class="chart-container">
+        <!-- Graphique -->
+        <div class="chart-container">
             <canvas id="savingsChart"></canvas>
         </div>
     </div>
