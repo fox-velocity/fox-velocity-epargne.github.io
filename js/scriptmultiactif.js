@@ -1,4 +1,5 @@
-// script.js
+// Dans scriptmultiactif.js
+
 import { updateEvolutionChart, updateInvestmentChart, updateSavingsChart } from './modules/charts.js';
 import { calculateInvestmentData } from './modules/data.js';
 import { updateStockInfo, updateResultsDisplay, updateSecuredGainsTable, showLoadingIndicator, setElementVisibility } from './modules/dom.js';
@@ -133,8 +134,14 @@ function selectSymbol(symbol, name, exchange, type, sector, industry) {
     setElementVisibility('suggestions', false);
     setElementVisibility('ModeEmploie', false);
 
-    const currency = exchangeToCurrency[exchange] || 'N/A';
+    let currency = exchangeToCurrency[exchange] || 'N/A';
     currencySymbol = currencySymbols[currency] || currency;
+
+     // Si currencySymbol est toujours 'N/A' après la tentative initiale, essayez d'utiliser exchDisp
+     if (currencySymbol === 'N/A') {
+      currency = exchangeToCurrency[exchange] || 'N/A';
+      currencySymbol = currencySymbols[currency] || exchange; // Utilisez exchDisp comme fallback
+    }
 
     // Information sur la devise
     const exchDisp =  exchange;
