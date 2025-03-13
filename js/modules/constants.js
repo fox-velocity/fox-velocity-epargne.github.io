@@ -2,7 +2,7 @@
 
 // Définition des symboles de devises
 export const currencySymbols = {
-   'USD': '$',
+    'USD': '$',
     'CNY': 'CN¥',
     'CAD': 'C$',
     'AUD': 'A$',
@@ -79,7 +79,8 @@ export const currencySymbols = {
 
 // Conversion des places boursières en devises
 export const exchangeToCurrency = {
-   'NASDAQ': 'USD',
+    'Paris': 'EUR',
+    'NASDAQ': 'USD',
     'NYSE': 'USD',
     'NYM': 'USD',
     'AMEX': 'USD',
@@ -109,7 +110,7 @@ export const exchangeToCurrency = {
     'NSE': 'INR',
     'ASX': 'AUD',
     'TSX': 'CAD',
-   'TOR' : 'CAD',
+    'TOR': 'CAD',
     'BMV': 'MXN',
     'B3': 'BRL',
     'JSE': 'ZAR',
