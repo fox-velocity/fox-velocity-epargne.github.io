@@ -157,6 +157,8 @@ export const exchangeToCurrency = {
     'Almaty': 'KZT',
     'Nur-Sultan': 'KZT',
     'Lusaka': 'ZMW',
+    'Londres (International Order Book)': 'GBP',
+    'Suisse':'CHF',
 
 
     'NASDAQ': 'USD',
