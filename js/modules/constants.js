@@ -80,6 +80,7 @@ export const currencySymbols = {
 // Conversion des places boursières en devises
 export const exchangeToCurrency = {
     'Paris': 'EUR',
+    'Berlin': 'EUR',
     'Stuttgart': 'EUR',
     'Londres': 'GBP',
     'New York': 'USD',
@@ -159,8 +160,9 @@ export const exchangeToCurrency = {
     'Lusaka': 'ZMW',
     'Londres (International Order Book)': 'GBP',
     'Suisse':'CHF',
-
-
+    'Chicago Mercantile Exchange': 'USD',
+    'NYSEArca': 'USD',
+    
     'NASDAQ': 'USD',
     'NYSE': 'USD',
     'NYM': 'USD',
