@@ -1,0 +1,23 @@
+/* Styles de base pour le simulateur d'impôt */
+
+/* Assurez-vous que la police Inter est utilisée si elle est chargée via CDN */
+body {
+  font-family: 'Inter', sans-serif;
+  /* Ajoutez ici d'autres styles globaux si nécessaire */
+}
+
+/* Styles pour le spinner de chargement (si non géré par Tailwind) */
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #3b82f6; /* Couleur bleue de Tailwind */
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
